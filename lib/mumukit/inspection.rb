@@ -2,7 +2,7 @@ require 'mumukit/inspection/version'
 
 module Mumukit
   module Inspection
-    def parse(s)
+    def self.parse(s)
       not_match = s.match /^Not:(.*)$/
       if not_match
         NegatedInspection.new(parse_base_inspection(not_match[1]))
@@ -13,7 +13,7 @@ module Mumukit
 
     private
 
-    def parse_base_inspection(s)
+    def self.parse_base_inspection(s)
       target_match = s.match /^(.*HasUsage):(.*)$/
       if target_match
         TargetedInspection.new(target_match[1], target_match[2])
@@ -24,7 +24,7 @@ module Mumukit
 
     class BaseInspection
       def to_h
-        {must: must, type: type, target: target}
+        {negated: negated?, type: type, target: target}
       end
     end
 
