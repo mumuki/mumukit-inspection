@@ -14,7 +14,7 @@ module Mumukit
     private
 
     def self.parse_base_inspection(s)
-      target_match = s.match /^(.*HasUsage):(.*)$/
+      target_match = s.match /^(.*):(.*)$/
       if target_match
         TargetedInspection.new(target_match[1], target_match[2])
       else
