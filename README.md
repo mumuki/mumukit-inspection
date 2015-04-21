@@ -1,3 +1,5 @@
+[![Build Status](https://travis-ci.org/uqbar-project/mumukit-inspection.svg)](https://travis-ci.org/uqbar-project/mumukit-inspection)
+
 # Mumukit::Inspection
 
 TODO: Write a gem description
