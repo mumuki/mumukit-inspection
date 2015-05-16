@@ -1,6 +1,6 @@
-[![Build Status](https://travis-ci.org/uqbar-project/mumukit-inspection.svg)](https://travis-ci.org/uqbar-project/mumukit-inspection)
-[![Code Climate](https://codeclimate.com/github/uqbar-project/mumukit-inspection/badges/gpa.svg)](https://codeclimate.com/github/uqbar-project/mumukit-inspection)
-[![Test Coverage](https://codeclimate.com/github/uqbar-project/mumukit-inspection/badges/coverage.svg)](https://codeclimate.com/github/uqbar-project/mumukit-inspection)
+[![Build Status](https://travis-ci.org/mumuki/mumukit-inspection.svg)](https://travis-ci.org/mumuki/mumukit-inspection)
+[![Code Climate](https://codeclimate.com/github/mumuki/mumukit-inspection/badges/gpa.svg)](https://codeclimate.com/github/mumuki/mumukit-inspection)
+[![Test Coverage](https://codeclimate.com/github/mumuki/mumukit-inspection/badges/coverage.svg)](https://codeclimate.com/github/mumuki/mumukit-inspection)
 
 # Mumukit::Inspection
 
