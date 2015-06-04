@@ -1,7 +1,15 @@
 language: ruby
 rvm:
- - 2.0.0
+- 2.0.0
 addons:
-    code_climate:
-      repo_token: cd923718a4ec0b254d714a3cc0c86eceaebe59c21dd7b703fd01a0c0365c4d72
+  code_climate:
+    repo_token: cd923718a4ec0b254d714a3cc0c86eceaebe59c21dd7b703fd01a0c0365c4d72
 env: CODECLIMATE_REPO_TOKEN=cd923718a4ec0b254d714a3cc0c86eceaebe59c21dd7b703fd01a0c0365c4d72
+deploy:
+  provider: rubygems
+  api_key:
+    secure: PuCxmpNqy8BC6l3kar+Id3xFzWm3eFIngxjhdBHrGRhY27ZHcbfazz1zE2pQCNMTGmX/0iHXFHBTSCeYDwTLQ4FdJfYcSxaBfwO8g5KGhNCc8QHZosg/wr3o+FZEqipKGQ5sOYGL64obqQ1Qsgj7kXm5GuynPA7RQ3yFn/8LOYw=
+  gem: mumukit-inspection
+  on:
+    tags: true
+    repo: mumuki/mumukit-inspection
