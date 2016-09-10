@@ -1,4 +1,12 @@
-require 'mumukit/inspection/version'
+require 'i18n'
+require 'i18n/backend/fallbacks'
+
+I18n::Backend::Simple.send(:include, I18n::Backend::Fallbacks)
+I18n.load_path += Dir[File.join(__dir__, '..', 'locales', '*.yml')]
+
+I18n.backend.load_translations
+
+require_relative '../mumukit/inspection/version'
 
 module Mumukit
   module Inspection
@@ -74,3 +82,5 @@ module Mumukit
     end
   end
 end
+
+require_relative '../mumukit/inspection/i18n'
