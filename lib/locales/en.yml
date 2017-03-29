@@ -1,5 +1,6 @@
 ---
 en:
+  expectation_DoesTypeTest: '%{binding} has redundant string comparisons'
   expectation_HasArity: '%{binding} %{must} have %{target} parameters'
   expectation_HasBinding: '%{binding} %{must} be defined'
   expectation_HasComposition: '%{binding} %{must} use composition'
