@@ -18,9 +18,11 @@ module Mumukit::Inspection
         binding = Mumukit::Inspection.parse_binding_name expectation[:binding]
         inspection = Mumukit::Inspection.parse expectation[:inspection]
 
-        ::I18n.t "expectation_#{inspection.type}",
-                 binding: "<strong>#{binding}</strong>",
-                 target: "<strong>#{t_target inspection}</strong>",
+        key = key_for binding, inspection
+
+        ::I18n.t key,
+                 binding: t_binding(binding),
+                 target: t_target(inspection),
                  must: t_must(inspection)
       rescue
         '<unknown expectation>'
@@ -30,16 +32,30 @@ module Mumukit::Inspection
 
       private
 
+      def key_for(binding, inspection)
+        if inspection.target.type == :named
+          "expectation_#{inspection.type}_named"
+        elsif inspection.target.type == :like
+          "expectation_#{inspection.type}_like"
+        elsif inspection.target.type == :tail
+          "expectation_#{inspection.type}_tail"
+        elsif inspection.target.type == :anyone && binding
+          "expectation_#{inspection.type}"
+        else binding
+          "expectation_#{inspection.type}_tail"
+        end
+      end
+
+      def t_binding(binding)
+        binding ? "<strong>#{binding}</strong>" : ::I18n.t("expectation_solution")
+      end
+
       def t_must(parsed)
         ::I18n.t("expectation_#{parsed.must}")
       end
 
       def t_target(parsed)
-        if parsed.target.is_a? OpenStruct
-          ::I18n.t("expectation_#{parsed.target.type}", value: parsed.target.value)
-        else
-          parsed.target
-        end
+        "<strong>#{parsed.target.value}</strong>"
       end
     end
   end

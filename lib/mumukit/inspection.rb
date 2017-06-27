@@ -9,6 +9,8 @@ module Mumukit
     def self.parse_binding_name(binding)
       if binding.start_with? 'Intransitive:'
         binding[13..-1]
+      elsif binding.empty?
+        nil
       else
         binding
       end
@@ -54,7 +56,7 @@ module Mumukit
       end
 
       def target
-        nil
+        struct type: :anyone
       end
     end
 
@@ -66,13 +68,15 @@ module Mumukit
 
       def target
         if @target == '*'
-          struct type: 'anyone'
+          struct type: :anyone
+        elsif @target == '^'
+          struct type: :tail
         elsif @target.start_with? '~'
-          struct type: 'like', value: @target[1..-1]
+          struct type: :like, value: @target[1..-1]
         elsif @target.start_with? '='
-          @target[1..-1]
+          struct type: :named, value: @target[1..-1]
         else
-          @target
+          struct type: :named, value: @target
         end
       end
     end
