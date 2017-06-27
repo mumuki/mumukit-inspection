@@ -1,5 +1,7 @@
 ---
 es:
+  expectation_like: 'similar a %{value}'
+  expectation_anyone: 'cualquiera'
   expectation_must: debe
   expectation_must_not: no debe
   expectation_DoesTypeTest: '%{binding} hace comparaciones de strings innecesarias'
