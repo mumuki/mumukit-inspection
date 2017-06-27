@@ -6,6 +6,10 @@ require_relative '../mumukit/inspection/version'
 
 module Mumukit
   module Inspection
+    def self.parse_binding_name(binding)
+      binding
+    end
+
     def self.parse(s)
       not_match = s.match /^Not:(.*)$/
       if not_match
@@ -28,7 +32,7 @@ module Mumukit
 
     class BaseInspection
       def to_h
-        {negated: negated?, type: type, target: target}
+        {negated: negated?, type: type, target: target}.compact
       end
     end
 
@@ -51,11 +55,13 @@ module Mumukit
     end
 
     class TargetedInspection < PositiveInspection
-      attr_accessor :target
-
       def initialize(type, target)
         @type = type
         @target = target
+      end
+
+      def target
+        @target unless @target == '*'
       end
     end
 
