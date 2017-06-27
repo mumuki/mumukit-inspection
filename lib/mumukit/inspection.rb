@@ -7,7 +7,11 @@ require_relative '../mumukit/inspection/version'
 module Mumukit
   module Inspection
     def self.parse_binding_name(binding)
-      binding
+      if binding.start_with? 'Intransitive:'
+        binding[13..-1]
+      else
+        binding
+      end
     end
 
     def self.parse(s)
@@ -61,7 +65,15 @@ module Mumukit
       end
 
       def target
-        @target unless @target == '*'
+        if @target == '*'
+          struct type: 'anyone'
+        elsif @target.start_with? '~'
+          struct type: 'like', value: @target[1..-1]
+        elsif @target.start_with? '='
+          @target[1..-1]
+        else
+          @target
+        end
       end
     end
 
