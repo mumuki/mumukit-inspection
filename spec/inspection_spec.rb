@@ -2,36 +2,36 @@ require_relative './spec_helper'
 
 
 describe Mumukit::Inspection do
-  it { expect(Mumukit::Inspection.parse('HasBinding').to_h).to eq(type: 'HasBinding',
+  it { expect(Mumukit::Inspection.parse('Declares').to_h).to eq(type: 'Declares',
                                                                   negated: false,
                                                                   target: struct(type: :anyone)  ) }
 
-  it { expect(Mumukit::Inspection.parse('Not:HasBinding').to_h).to eq(type: 'HasBinding',
+  it { expect(Mumukit::Inspection.parse('Not:Declares').to_h).to eq(type: 'Declares',
                                                                       negated: true,
                                                                       target: struct(type: :anyone)) }
 
-  it { expect(Mumukit::Inspection.parse('HasUsage:m').to_h).to eq(type: 'HasUsage',
+  it { expect(Mumukit::Inspection.parse('Uses:m').to_h).to eq(type: 'Uses',
                                                                   negated: false,
                                                                   target: struct(type: :named, value: 'm')) }
 
-  it { expect(Mumukit::Inspection.parse('Not:HasUsage:m').to_h).to eq(type: 'HasUsage',
+  it { expect(Mumukit::Inspection.parse('Not:Uses:m').to_h).to eq(type: 'Uses',
                                                                       negated: true,
                                                                       target: struct(type: :named, value: 'm') ) }
 
-  it { expect(Mumukit::Inspection.parse('Not:HasUsage:^').to_h).to eq(type: 'HasUsage',
-                                                                      negated: true,
-                                                                      target: struct(type: :tail) ) }
+  it { expect(Mumukit::Inspection.parse('Uses:^foo').to_h).to eq(type: 'Uses',
+                                                                      negated: false,
+                                                                      target: struct(type: :except, value: 'foo') ) }
 
-  it { expect(Mumukit::Inspection.parse('HasUsage:=m').to_h).to eq(type: 'HasUsage',
+  it { expect(Mumukit::Inspection.parse('Uses:=m').to_h).to eq(type: 'Uses',
                                                                    negated: false,
                                                                    target: struct(type: :named, value: 'm')) }
-  it { expect(Mumukit::Inspection.parse('HasUsage:~m').to_h).to eq(type: 'HasUsage',
+  it { expect(Mumukit::Inspection.parse('Uses:~m').to_h).to eq(type: 'Uses',
                                                                    negated: false,
                                                                    target: struct(type: :like, value: 'm')) }
-  it { expect(Mumukit::Inspection.parse('Not:HasUsage:~m').to_h).to eq(type: 'HasUsage',
+  it { expect(Mumukit::Inspection.parse('Not:Uses:~m').to_h).to eq(type: 'Uses',
                                                                        negated: true,
                                                                        target: struct(type: :like, value: 'm')) }
-  it { expect(Mumukit::Inspection.parse('HasUsage:*').to_h).to eq(type: 'HasUsage',
+  it { expect(Mumukit::Inspection.parse('Uses:*').to_h).to eq(type: 'Uses',
                                                                   negated: false,
                                                                   target: struct(type: :anyone)) }
 

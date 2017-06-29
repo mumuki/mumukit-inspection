@@ -69,8 +69,8 @@ module Mumukit
       def target
         if @target == '*'
           struct type: :anyone
-        elsif @target == '^'
-          struct type: :tail
+        elsif @target.start_with? '^'
+          struct type: :except, value: @target[1..-1]
         elsif @target.start_with? '~'
           struct type: :like, value: @target[1..-1]
         elsif @target.start_with? '='
