@@ -33,16 +33,10 @@ module Mumukit::Inspection
       private
 
       def key_for(binding, inspection)
-        if inspection.target.type == :named
-          "expectation_#{inspection.type}_named"
-        elsif inspection.target.type == :like
-          "expectation_#{inspection.type}_like"
-        elsif inspection.target.type == :tail
-          "expectation_#{inspection.type}_tail"
-        elsif inspection.target.type == :anyone && binding
+        if inspection.target.type == :anyone
           "expectation_#{inspection.type}"
-        else binding
-          "expectation_#{inspection.type}_tail"
+        else
+          "expectation_#{inspection.type}_#{inspection.target.type}"
         end
       end
 
