@@ -3,7 +3,7 @@ require 'spec_helper'
 describe Mumukit::Inspection::I18n do
 
   def translate_expectation(binding, inspection)
-    Mumukit::Inspection::I18n.t binding: binding, inspection: inspection
+    Mumukit::Inspection::I18n.t(Mumukit::Inspection::Expectation.parse binding: binding, inspection: inspection)
   end
 
   context 'en locale' do

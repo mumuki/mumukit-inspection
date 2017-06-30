@@ -1,5 +1,5 @@
 module Mumukit
-  module Inspection
+  class Inspection
     VERSION = '1.0.0'
   end
 end
