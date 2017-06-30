@@ -1,56 +1,37 @@
-module Mumukit::Inspection
-
-  class Mumukit::Inspection::NegatedInspection
-    def must
-      'must_not'
+module Mumukit::Inspection::I18n
+  class << self
+    def translate(e)
+      key = key_for e.binding, e.inspection
+      ::I18n.t key,
+      binding: t_binding(e.binding),
+      target: t_target(e.inspection),
+      must: t_must(e.inspection)
+    rescue
+      '<unknown expectation>'
     end
-  end
 
-  class Mumukit::Inspection::PositiveInspection
-    def must
-      'must'
+    alias t translate
+
+    private
+
+    def key_for(binding, inspection)
+      if inspection.target.type == :anyone
+        "expectation_#{inspection.type}"
+      else
+        "expectation_#{inspection.type}_#{inspection.target.type}"
+      end
     end
-  end
 
-  module I18n
-    class << self
-      def translate(expectation)
-        binding = Mumukit::Inspection.parse_binding_name expectation[:binding]
-        inspection = Mumukit::Inspection.parse expectation[:inspection]
+    def t_binding(binding)
+      binding ? "<strong>#{binding}</strong>" : ::I18n.t("expectation_solution")
+    end
 
-        key = key_for binding, inspection
+    def t_must(parsed)
+      ::I18n.t("expectation_#{parsed.negated? ? 'must_not' : 'must' }")
+    end
 
-        ::I18n.t key,
-                 binding: t_binding(binding),
-                 target: t_target(inspection),
-                 must: t_must(inspection)
-      rescue
-        '<unknown expectation>'
-      end
-
-      alias t translate
-
-      private
-
-      def key_for(binding, inspection)
-        if inspection.target.type == :anyone
-          "expectation_#{inspection.type}"
-        else
-          "expectation_#{inspection.type}_#{inspection.target.type}"
-        end
-      end
-
-      def t_binding(binding)
-        binding ? "<strong>#{binding}</strong>" : ::I18n.t("expectation_solution")
-      end
-
-      def t_must(parsed)
-        ::I18n.t("expectation_#{parsed.must}")
-      end
-
-      def t_target(parsed)
-        "<strong>#{parsed.target.value}</strong>"
-      end
+    def t_target(parsed)
+      "<strong>#{parsed.target.value}</strong>"
     end
   end
 end
