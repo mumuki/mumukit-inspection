@@ -1,6 +1,7 @@
 module Mumukit::Inspection::I18n
   class << self
     def translate(e)
+      e = e.as_v2
       key = key_for e.binding, e.inspection
       ::I18n.t key,
       binding: t_binding(e.binding),

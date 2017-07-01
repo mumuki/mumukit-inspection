@@ -25,8 +25,14 @@ class Mumukit::Inspection::Expectation
       Mumukit::Inspection.parse(expectation[:inspection])).tap &:check!
   end
 
+  def translate
+    Mumukit::Inspection::I18n.translate self
+  end
+
   class V0 < Mumukit::Inspection::Expectation
-    INSPECTIONS = %w(HasBinding HasUsage)
+    INSPECTIONS = %w(HasBinding HasTypeDeclaration HasTypeSignature HasVariable HasArity HasDirectRecursion
+                     HasComposition HasComprehension HasForeach HasIf HasGuards HasConditional HasLambda HasRepeat HasWhile
+                     HasUsage)
 
 
     def binding?
@@ -38,11 +44,32 @@ class Mumukit::Inspection::Expectation
     end
 
     def as_v2
-      if inspection.type == 'HasBinding'
-        V2.new nil, Mumukit::Inspection.new('Declares', Mumukit::Inspection::Target.new(:named, binding), inspection.negated?)
-      else
-        nil
+      if has? 'Binding' then as_v2_declare ''
+      elsif has? 'TypeDeclaration' then as_v2_declare 'TypeAlias'
+      elsif has? 'TypeSignature' then as_v2_declare 'TypeSignature'
+      elsif has? 'Variable' then as_v2_declare 'Variable'
+      elsif has? 'Arity' then as_v2_declare "ComputationWithArity#{inspection.target.value}"
+      elsif has? 'DirectRecursion' then as_v2_declare "Recursively"
+      elsif has? 'Usage'
+        V2.new binding, new_inspection('Uses', Mumukit::Inspection::Target.named(inspection.target.value))
+      else as_v2_use
       end
+    end
+
+    def has?(simple_type)
+      inspection.type == "Has#{simple_type}"
+    end
+
+    def as_v2_use
+      V2.new binding, new_inspection(inspection.type.gsub('Has', 'Uses'), Mumukit::Inspection::Target.anyone)
+    end
+
+    def as_v2_declare(simple_type)
+      V2.new nil, new_inspection("Declares#{simple_type}", Mumukit::Inspection::Target.named(binding))
+    end
+
+    def new_inspection(type, target)
+      Mumukit::Inspection.new(type, target, inspection.negated?)
     end
   end
 
