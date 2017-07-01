@@ -8,19 +8,27 @@ class Mumukit::Inspection::Target
 
   def self.parse(target_s)
     if target_s.blank? || target_s == '*'
-      new :anyone
+      anyone
     elsif target_s.start_with? '^'
       new :except, target_tail(target_s)
     elsif target_s.start_with? '~'
       new :like, target_tail(target_s)
     elsif target_s.start_with? '='
-      new :named, target_tail(target_s)
+      named target_tail(target_s)
     else
-      new :named, target_s
+      named target_s
     end
   end
 
   def self.target_tail(target_s)
     target_s[1..-1]
+  end
+
+  def self.named(value)
+    new(:named, value)
+  end
+
+  def self.anyone
+    new(:anyone)
   end
 end
