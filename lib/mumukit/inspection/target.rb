@@ -7,7 +7,9 @@ class Mumukit::Inspection::Target
   end
 
   def self.parse(target_s)
-    if target_s.blank? || target_s == '*'
+    if target_s.blank?
+      nil
+    elsif target_s == '*'
       anyone
     elsif target_s.start_with? '^'
       new :except, target_tail(target_s)
@@ -16,12 +18,44 @@ class Mumukit::Inspection::Target
     elsif target_s.start_with? '='
       named target_tail(target_s)
     else
-      named target_s
+      unknown target_s
+    end
+  end
+
+  def to_s
+    case type
+    when  :anyone
+      '*'
+    when :except
+      "^#{value}"
+    when :like
+      "~#{value}"
+    when :named
+      "=#{value}"
+    else
+      value
+    end
+  end
+
+  def i18n_suffix
+    case type
+    when :anyone
+      nil
+    when :except
+      "_except"
+    when :like
+      "_like"
+    else
+      "_named"
     end
   end
 
   def self.target_tail(target_s)
     target_s[1..-1]
+  end
+
+  def self.unknown(value)
+    new(:unknown, value)
   end
 
   def self.named(value)

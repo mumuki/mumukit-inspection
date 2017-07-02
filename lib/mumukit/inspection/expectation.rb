@@ -11,6 +11,14 @@ class Mumukit::Inspection::Expectation
     raise "Wrong inspection #{inspection}" unless inspection?
   end
 
+  def translate
+    Mumukit::Inspection::I18n.translate self
+  end
+
+  def to_h
+    {binding: binding, inspection: inspection.to_s}
+  end
+
   def self.guess_type(expectation)
     if expectation[:inspection] =~ /(Not\:)?Has.*/
       V0
@@ -21,12 +29,8 @@ class Mumukit::Inspection::Expectation
 
   def self.parse(expectation)
     guess_type(expectation).new(
-      Mumukit::Inspection.parse_binding(expectation[:binding]),
+      expectation[:binding],
       Mumukit::Inspection.parse(expectation[:inspection])).tap &:check!
-  end
-
-  def translate
-    Mumukit::Inspection::I18n.translate self
   end
 
   class V0 < Mumukit::Inspection::Expectation
@@ -65,7 +69,7 @@ class Mumukit::Inspection::Expectation
     end
 
     def as_v2_declare(simple_type)
-      V2.new nil, new_inspection("Declares#{simple_type}", Mumukit::Inspection::Target.named(binding))
+      V2.new '', new_inspection("Declares#{simple_type}", Mumukit::Inspection::Target.named(binding))
     end
 
     def new_inspection(type, target)
