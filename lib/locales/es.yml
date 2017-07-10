@@ -1,5 +1,9 @@
 ---
 es:
+  expectation_Assigns: '%{binding} %{must} realizar asignaciones'
+  expectation_Assigns_except: '%{binding} %{must} asignar a algo diferente a %{target}'
+  expectation_Assigns_like: '%{binding} %{must} asignar algo parecido a %{target}'
+  expectation_Assigns_named: '%{binding} %{must} asignar %{target}'
   expectation_Declares: '%{binding} %{must} contener declaraciones'
   expectation_Declares_except: '%{binding} %{must} contener declaraciones distintas a %{target}'
   expectation_Declares_like: '%{binding} %{must} declarar un identificador parecido a %{target}'

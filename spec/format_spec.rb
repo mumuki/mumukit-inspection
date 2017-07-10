@@ -20,6 +20,7 @@ describe Mumukit::Inspection::Expectation do
     it { expect(subject.parse(binding: 'foo', inspection: 'DeclaresClass:Golondrina').to_h).to eq binding: 'foo', inspection: 'DeclaresClass:Golondrina' }
     it { expect(subject.parse(binding: 'Intransitive:foo', inspection: 'Uses:*').to_h).to eq binding: 'Intransitive:foo', inspection: 'Uses:*' }
     it { expect(subject.parse(binding: 'foo', inspection: 'DeclaresClass').to_h).to eq binding: 'foo', inspection: 'DeclaresClass' }
+    it { expect(subject.parse(binding: 'foo', inspection: 'Assigns:bar').to_h).to eq binding: 'foo', inspection: 'Assigns:bar' }
   end
 
   describe 'it can adapt to latest format' do
