@@ -7,8 +7,8 @@ class Mumukit::Inspection::Expectation
   end
 
   def check!
-    raise "Wrong binding #{binding}" unless binding?
-    raise "Wrong inspection #{inspection}" unless inspection?
+    raise "Wrong binding in #{to_h}" unless binding?
+    raise "Wrong inspection #{to_h}" unless inspection?
   end
 
   def translate
