@@ -65,7 +65,7 @@ class Mumukit::Inspection::Expectation
     end
 
     def as_v2_use
-      V2.new binding, new_inspection(inspection.type.gsub('Has', 'Uses'), Mumukit::Inspection::Target.anyone)
+      V2.new binding, new_inspection(inspection.type.gsub('Has', 'Uses'), nil)
     end
 
     def as_v2_declare(simple_type)

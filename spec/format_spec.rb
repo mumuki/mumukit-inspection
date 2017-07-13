@@ -15,12 +15,18 @@ describe Mumukit::Inspection::Expectation do
   end
 
   describe 'it can convert back to hash' do
-    it { expect(subject.parse(binding: 'foo', inspection: 'HasBinding').to_h).to eq binding: 'foo', inspection: 'HasBinding' }
-    it { expect(subject.parse(binding: 'foo', inspection: 'HasArity:1').to_h).to eq binding: 'foo', inspection: 'HasArity:1' }
-    it { expect(subject.parse(binding: 'foo', inspection: 'DeclaresClass:Golondrina').to_h).to eq binding: 'foo', inspection: 'DeclaresClass:Golondrina' }
-    it { expect(subject.parse(binding: 'Intransitive:foo', inspection: 'Uses:*').to_h).to eq binding: 'Intransitive:foo', inspection: 'Uses:*' }
-    it { expect(subject.parse(binding: 'foo', inspection: 'DeclaresClass').to_h).to eq binding: 'foo', inspection: 'DeclaresClass' }
-    it { expect(subject.parse(binding: 'foo', inspection: 'Assigns:bar').to_h).to eq binding: 'foo', inspection: 'Assigns:bar' }
+    context 'after adaptation' do
+      it { expect(subject.parse(binding: 'foo', inspection: 'HasWhile').as_v2.to_h).to eq binding: 'foo', inspection: 'UsesWhile' }
+    end
+
+    context 'no adaptation' do
+      it { expect(subject.parse(binding: 'foo', inspection: 'HasBinding').to_h).to eq binding: 'foo', inspection: 'HasBinding' }
+      it { expect(subject.parse(binding: 'foo', inspection: 'HasArity:1').to_h).to eq binding: 'foo', inspection: 'HasArity:1' }
+      it { expect(subject.parse(binding: 'foo', inspection: 'DeclaresClass:Golondrina').to_h).to eq binding: 'foo', inspection: 'DeclaresClass:Golondrina' }
+      it { expect(subject.parse(binding: 'Intransitive:foo', inspection: 'Uses:*').to_h).to eq binding: 'Intransitive:foo', inspection: 'Uses:*' }
+      it { expect(subject.parse(binding: 'foo', inspection: 'DeclaresClass').to_h).to eq binding: 'foo', inspection: 'DeclaresClass' }
+      it { expect(subject.parse(binding: 'foo', inspection: 'Assigns:bar').to_h).to eq binding: 'foo', inspection: 'Assigns:bar' }
+    end
   end
 
   describe 'it can adapt to latest format' do
@@ -57,33 +63,33 @@ describe Mumukit::Inspection::Expectation do
           .to json_like binding: '', inspection: {type: 'DeclaresRecursively', target: {type: :named, value: 'foo'}, negated: true}   }
 
     it { expect(subject.parse(binding: 'foo', inspection: 'HasComposition').as_v2)
-          .to json_like binding: 'foo', inspection: {type: 'UsesComposition', target: {type: :anyone, value: nil}, negated: false}   }
+          .to json_like binding: 'foo', inspection: {type: 'UsesComposition', target: nil, negated: false}   }
     it { expect(subject.parse(binding: 'foo', inspection: 'Not:HasComposition').as_v2)
-          .to json_like binding: 'foo', inspection: {type: 'UsesComposition', target: {type: :anyone, value: nil}, negated: true}   }
+          .to json_like binding: 'foo', inspection: {type: 'UsesComposition', target: nil, negated: true}   }
 
     it { expect(subject.parse(binding: 'foo', inspection: 'HasComprehension').as_v2)
-          .to json_like binding: 'foo', inspection: {type: 'UsesComprehension', target: {type: :anyone, value: nil}, negated: false}   }
+          .to json_like binding: 'foo', inspection: {type: 'UsesComprehension', target: nil, negated: false}   }
 
     it { expect(subject.parse(binding: 'foo', inspection: 'HasForeach').as_v2)
-          .to json_like binding: 'foo', inspection: {type: 'UsesForeach', target: {type: :anyone, value: nil}, negated: false}   }
+          .to json_like binding: 'foo', inspection: {type: 'UsesForeach', target: nil, negated: false}   }
 
     it { expect(subject.parse(binding: 'foo', inspection: 'HasIf').as_v2)
-          .to json_like binding: 'foo', inspection: {type: 'UsesIf', target: {type: :anyone, value: nil}, negated: false}   }
+          .to json_like binding: 'foo', inspection: {type: 'UsesIf', target: nil, negated: false}   }
 
     it { expect(subject.parse(binding: 'foo', inspection: 'HasGuards').as_v2)
-          .to json_like binding: 'foo', inspection: {type: 'UsesGuards', target: {type: :anyone, value: nil}, negated: false}   }
+          .to json_like binding: 'foo', inspection: {type: 'UsesGuards', target: nil, negated: false}   }
 
     it { expect(subject.parse(binding: 'foo', inspection: 'HasConditional').as_v2)
-          .to json_like binding: 'foo', inspection: {type: 'UsesConditional', target: {type: :anyone, value: nil}, negated: false}   }
+          .to json_like binding: 'foo', inspection: {type: 'UsesConditional', target: nil, negated: false}   }
 
     it { expect(subject.parse(binding: 'foo', inspection: 'HasLambda').as_v2)
-          .to json_like binding: 'foo', inspection: {type: 'UsesLambda', target: {type: :anyone, value: nil}, negated: false}   }
+          .to json_like binding: 'foo', inspection: {type: 'UsesLambda', target: nil, negated: false}   }
 
     it { expect(subject.parse(binding: 'foo', inspection: 'HasRepeat').as_v2)
-          .to json_like binding: 'foo', inspection: {type: 'UsesRepeat', target: {type: :anyone, value: nil}, negated: false}   }
+          .to json_like binding: 'foo', inspection: {type: 'UsesRepeat', target: nil, negated: false}   }
 
     it { expect(subject.parse(binding: 'foo', inspection: 'HasWhile').as_v2)
-          .to json_like binding: 'foo', inspection: {type: 'UsesWhile', target: {type: :anyone, value: nil}, negated: false}   }
+          .to json_like binding: 'foo', inspection: {type: 'UsesWhile', target: nil, negated: false}   }
 
     it { expect(subject.parse(binding: 'foo', inspection: 'HasUsage:bar').as_v2)
           .to json_like binding: 'foo', inspection: {type: 'Uses', target: {type: :named, value: 'bar'}, negated: false}   }
