@@ -20,7 +20,7 @@ module Mumukit::Inspection::I18n
     end
 
     def t_binding(binding)
-      binding.present? ? "<strong>#{Mumukit::Inspection.parse_binding_name binding}</strong>" : ::I18n.t("expectation_solution")
+      binding == '*' ? ::I18n.t("expectation_solution") : "<strong>#{Mumukit::Inspection.parse_binding_name binding}</strong>"
     end
 
     def t_must(parsed)
