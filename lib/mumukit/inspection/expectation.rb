@@ -69,7 +69,7 @@ class Mumukit::Inspection::Expectation
     end
 
     def as_v2_declare(simple_type)
-      V2.new '', new_inspection("Declares#{simple_type}", Mumukit::Inspection::Target.named(binding))
+      V2.new '*', new_inspection("Declares#{simple_type}", Mumukit::Inspection::Target.named(binding))
     end
 
     def new_inspection(type, target)
