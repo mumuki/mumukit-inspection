@@ -26,14 +26,14 @@ class Mumukit::Inspection::Expectation
   end
 
   def self.guess_type(expectation)
-    if expectation[:inspection] =~ /(Not\:)?Has.*/ && !smell?(expectation[:inspection])
+    if expectation[:inspection] =~ /(Not\:)?Has.*/ && !has_smell?(expectation[:inspection])
       V0
     else
       V2
     end
   end
 
-  def self.smell?(smell)
+  def self.has_smell?(smell)
     SMELLS.include? smell
   end
 
