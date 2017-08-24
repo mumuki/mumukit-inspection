@@ -30,7 +30,7 @@ class Mumukit::Inspection::Expectation
   def self.parse(expectation)
     guess_type(expectation).new(
       expectation[:binding],
-      Mumukit::Inspection.parse(expectation[:inspection])).tap &:check!
+      Mumukit::Inspection.parse(expectation[:inspection]))
   end
 
   class V0 < Mumukit::Inspection::Expectation

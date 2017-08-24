@@ -4,9 +4,9 @@ describe Mumukit::Inspection::Expectation do
   subject { Mumukit::Inspection::Expectation }
 
   describe 'it can check old format' do
-    it { expect { subject.parse binding: 'foo', inspection: 'HasBinding' }.to_not raise_error }
-    it { expect { subject.parse binding: 'foo', inspection: 'HasBindin' }.to raise_error }
-    it { expect { subject.parse binding: '', inspection: 'HasBinding' }.to raise_error }
+    it { expect { subject.parse(binding: 'foo', inspection: 'HasBinding').check! }.to_not raise_error }
+    it { expect { subject.parse(binding: 'foo', inspection: 'HasBindin').check! }.to raise_error }
+    it { expect { subject.parse(binding: '', inspection: 'HasBinding').check! }.to raise_error }
   end
 
   describe 'it can guess format' do
