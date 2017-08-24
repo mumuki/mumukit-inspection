@@ -1,4 +1,10 @@
 class Mumukit::Inspection::Expectation
+
+  SMELLS = %w(HasAssignmentReturn HasCodeDuplication HasMisspelledIdentifiers
+              HasRedundantBooleanComparison HasRedundantGuards HasRedundantIf
+              HasRedundantLambda HasRedundantLocalVariableReturn HasRedundantParameter
+              HasRedundantReduction HasTooShortIdentifiers HasWrongCaseIdentifiers)
+
   attr_accessor :binding, :inspection
 
   def initialize(binding, inspection)
@@ -20,11 +26,15 @@ class Mumukit::Inspection::Expectation
   end
 
   def self.guess_type(expectation)
-    if expectation[:inspection] =~ /(Not\:)?Has.*/
+    if expectation[:inspection] =~ /(Not\:)?Has.*/ && !smell?(expectation[:inspection])
       V0
     else
       V2
     end
+  end
+
+  def self.smell?(smell)
+    SMELLS.include? smell
   end
 
   def self.parse(expectation)
