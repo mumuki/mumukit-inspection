@@ -5,6 +5,22 @@ describe Mumukit::Inspection::Expectation do
 
   describe 'it can check old format' do
     it { expect { subject.parse(binding: 'foo', inspection: 'HasBinding').check! }.to_not raise_error }
+    it { expect { subject.parse(binding: 'foo', inspection: 'HasUsage:bar').check! }.to_not raise_error }
+    it { expect { subject.parse(binding: 'foo', inspection: 'HasWhile').check! }.to_not raise_error }
+    it { expect { subject.parse(binding: 'foo', inspection: 'HasTypeDeclaration').check! }.to_not raise_error }
+    it { expect { subject.parse(binding: 'foo', inspection: 'HasTypeSignature').check! }.to_not raise_error }
+    it { expect { subject.parse(binding: 'foo', inspection: 'HasAnonymousVariable').check! }.to_not raise_error }
+    it { expect { subject.parse(binding: 'foo', inspection: 'HasRepeat').check! }.to_not raise_error }
+    it { expect { subject.parse(binding: 'foo', inspection: 'HasNot').check! }.to_not raise_error }
+    it { expect { subject.parse(binding: 'foo', inspection: 'HasLambda').check! }.to_not raise_error }
+    it { expect { subject.parse(binding: 'foo', inspection: 'HasIf').check! }.to_not raise_error }
+    it { expect { subject.parse(binding: 'foo', inspection: 'HasForall').check! }.to_not raise_error }
+    it { expect { subject.parse(binding: 'foo', inspection: 'HasFindall').check! }.to_not raise_error }
+    it { expect { subject.parse(binding: 'foo', inspection: 'HasComprehension').check! }.to_not raise_error }
+    it { expect { subject.parse(binding: 'foo', inspection: 'HasDirectRecursion').check! }.to_not raise_error }
+    it { expect { subject.parse(binding: 'foo', inspection: 'HasComposition').check! }.to_not raise_error }
+    it { expect { subject.parse(binding: 'foo', inspection: 'HasArity').check! }.to_not raise_error }
+
     it { expect { subject.parse(binding: 'foo', inspection: 'HasBindin').check! }.to raise_error }
     it { expect { subject.parse(binding: '', inspection: 'HasBinding').check! }.to raise_error }
   end

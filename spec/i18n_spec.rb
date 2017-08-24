@@ -14,12 +14,24 @@ describe Mumukit::Inspection::I18n do
     it { expect(translate_expectation('foo', 'Not:UsesLambda')).to eq('<strong>foo</strong> must not use lambda expressions') }
   end
 
+
   context 'es locale' do
     before { I18n.locale = :es }
     describe 'v0 exectations' do
       it { expect(translate_expectation('foo', 'HasBinding')).to eq('la solución debe declarar <strong>foo</strong>') }
       it { expect(translate_expectation('foo', 'HasUsage:bar')).to eq('<strong>foo</strong> debe utilizar <strong>bar</strong>') }
       it { expect(translate_expectation('foo', 'HasWhile')).to eq('<strong>foo</strong> debe utilizar repetición condicional (sentencia <i>while</i>)') }
+      it { expect(translate_expectation('foo', 'HasTypeDeclaration')).to eq('la solución debe declarar un sinónimo de tipo <strong>foo</strong>') }
+      it { expect(translate_expectation('foo', 'HasTypeSignature')).to eq('la solución debe declarar una firma <strong>foo</strong>') }
+      it { expect(translate_expectation('foo', 'HasRepeat')).to eq('<strong>foo</strong> debe usar una repetición simple (sentencia <i>repeat</i>)') }
+      it { expect(translate_expectation('foo', 'HasNot')).to eq('<strong>foo</strong> debe utilizar not') }
+      it { expect(translate_expectation('foo', 'HasLambda')).to eq('<strong>foo</strong> debe emplear expresiones lambda') }
+      it { expect(translate_expectation('foo', 'HasIf')).to eq('<strong>foo</strong> debe usar if') }
+      it { expect(translate_expectation('foo', 'HasForall')).to eq('<strong>foo</strong> debe utilizar forall') }
+      it { expect(translate_expectation('foo', 'HasFindall')).to eq('<strong>foo</strong> debe utilizar findall') }
+      it { expect(translate_expectation('foo', 'HasComprehension')).to eq('<strong>foo</strong> debe emplear listas por comprensión') }
+      it { expect(translate_expectation('foo', 'HasDirectRecursion')).to eq('<strong>foo</strong> debe estar declarado recursivamente') }
+      it { expect(translate_expectation('foo', 'HasComposition')).to eq('<strong>foo</strong> debe usar composición') }
     end
 
     describe 'v2 expectations' do
@@ -59,6 +71,14 @@ describe Mumukit::Inspection::I18n do
 
       it { expect(translate_expectation('foo', 'DeclaresObject')).to eq('<strong>foo</strong> debe declarar objetos') }
       it { expect(translate_expectation('*', 'Not:DeclaresClass')).to eq('la solución no debe declarar clases') }
+      it { expect(translate_expectation('foo', 'HasAnonymousVariable')).to eq('<strong>foo</strong> debe utilizar una variable anónima') }
+      it { expect(translate_expectation('foo', 'UsesAnonymousVariable')).to eq('<strong>foo</strong> debe utilizar una variable anónima') }
+    end
+
+    describe 'smells' do
+      it { expect(translate_expectation('foo', 'HasRedundantIf')).to eq('<strong>foo</strong> tiene ifs innecesarios') }
+      it { expect(translate_expectation('foo', 'HasRedundantBooleanComparison')).to eq('<strong>foo</strong> hace comparaciones booleanas innecesarias') }
+      it { expect(translate_expectation('bar', 'UsesFail')).to eq('<strong>bar</strong> usa <i>fail</li>, lo cual es una mala práctica') }
     end
   end
 end
