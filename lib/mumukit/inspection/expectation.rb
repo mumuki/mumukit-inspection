@@ -46,7 +46,7 @@ class Mumukit::Inspection::Expectation
   class V0 < Mumukit::Inspection::Expectation
     INSPECTIONS = %w(HasBinding HasTypeDeclaration HasTypeSignature HasVariable HasArity HasDirectRecursion
                      HasComposition HasComprehension HasForeach HasIf HasGuards HasConditional HasLambda HasRepeat HasWhile
-                     HasUsage)
+                     HasUsage HasAnonymousVariable HasNot HasForall HasFindall)
 
 
     def binding?
