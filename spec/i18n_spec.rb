@@ -59,6 +59,9 @@ describe Mumukit::Inspection::I18n do
 
       it { expect(translate_expectation('foo', 'DeclaresObject')).to eq('<strong>foo</strong> debe declarar objetos') }
       it { expect(translate_expectation('*', 'Not:DeclaresClass')).to eq('la solución no debe declarar clases') }
+
+      it { expect(translate_expectation('foo', 'HasRedundantIf')).to eq('<strong>foo</strong> tiene ifs innecesarios') }
+      it { expect(translate_expectation('bar', 'UsesFail')).to eq('<strong>bar</strong> usa <i>fail</li>, lo cual es una mala práctica') }
     end
   end
 end
