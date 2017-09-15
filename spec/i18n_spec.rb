@@ -20,10 +20,10 @@ describe Mumukit::Inspection::I18n do
     describe 'v0 exectations' do
       it { expect(translate_expectation('foo', 'HasBinding')).to eq('la solución debe declarar <strong>foo</strong>') }
       it { expect(translate_expectation('foo', 'HasUsage:bar')).to eq('<strong>foo</strong> debe utilizar <strong>bar</strong>') }
-      it { expect(translate_expectation('foo', 'HasWhile')).to eq('<strong>foo</strong> debe utilizar repetición condicional (sentencia <i>while</i>)') }
+      it { expect(translate_expectation('foo', 'HasWhile')).to eq('<strong>foo</strong> debe utilizar un <i>while</i>') }
       it { expect(translate_expectation('foo', 'HasTypeDeclaration')).to eq('la solución debe declarar un sinónimo de tipo <strong>foo</strong>') }
       it { expect(translate_expectation('foo', 'HasTypeSignature')).to eq('la solución debe declarar una firma <strong>foo</strong>') }
-      it { expect(translate_expectation('foo', 'HasRepeat')).to eq('<strong>foo</strong> debe usar una repetición simple (sentencia <i>repeat</i>)') }
+      it { expect(translate_expectation('foo', 'HasRepeat')).to eq('<strong>foo</strong> debe usar <i>repeat</i>') }
       it { expect(translate_expectation('foo', 'HasNot')).to eq('<strong>foo</strong> debe utilizar not') }
       it { expect(translate_expectation('foo', 'HasLambda')).to eq('<strong>foo</strong> debe emplear expresiones lambda') }
       it { expect(translate_expectation('foo', 'HasIf')).to eq('<strong>foo</strong> debe usar if') }
