@@ -79,6 +79,7 @@ describe Mumukit::Inspection::I18n do
       it { expect(translate_expectation('foo', 'HasRedundantIf')).to eq('<strong>foo</strong> tiene ifs innecesarios') }
       it { expect(translate_expectation('foo', 'HasRedundantBooleanComparison')).to eq('<strong>foo</strong> hace comparaciones booleanas innecesarias') }
       it { expect(translate_expectation('bar', 'UsesFail')).to eq('<strong>bar</strong> usa <i>fail</li>, lo cual es una mala práctica') }
+      it { expect(translate_expectation('foo', 'HasEmptyIfBranches')).to eq('<strong>foo</strong> tiene ramas de if vacías') }
     end
   end
 end

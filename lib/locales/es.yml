@@ -90,6 +90,7 @@ es:
   expectation_DoesTypeTest: '%{binding} hace comparaciones contra strings'
   expectation_HasAssignmentReturn: '%{binding} devuelve el resultado de una asignación'
   expectation_HasCodeDuplication: '%{binding} tiene código repetido'
+  expectation_HasEmptyIfBranches: '%{binding} tiene ramas de if vacías'
   expectation_HasMisspelledBindings: '%{binding} está mal escrito. Revisá la ortografía y procurá no usar abreviaturas'
   expectation_HasMisspelledIdentifiers: '%{binding} está mal escrito. Revisá la ortografía y procurá no usar abreviaturas'
   expectation_HasRedundantBooleanComparison: '%{binding} hace comparaciones booleanas innecesarias'

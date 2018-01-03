@@ -76,6 +76,7 @@ en:
   expectation_DoesTypeTest: '%{binding} string type tests'
   expectation_HasAssignmentReturn: '%{binding} returns the result of an assignment'
   expectation_HasCodeDuplication: '%{binding} has code duplication'
+  expectation_HasEmptyIfBranches: '%{binding} has empty if branches'
   expectation_HasMisspelledBindings: '%{binding} is misspelled'
   expectation_HasRedundantBooleanComparison: '%{binding} makes unnecesary boolean comparisons'
   expectation_HasRedundantGuards: '%{binding} has unnecessary guards'
