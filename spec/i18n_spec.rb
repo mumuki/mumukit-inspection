@@ -14,6 +14,13 @@ describe Mumukit::Inspection::I18n do
     it { expect(translate_expectation('foo', 'Not:UsesLambda')).to eq('<strong>foo</strong> must not use lambda expressions') }
   end
 
+  context 'en locale' do
+    before { I18n.locale = :pt }
+
+    it { expect(translate_expectation('*', 'Declares:foo')).to eq('a solução deve declarar <strong>foo</strong>') }
+    it { expect(translate_expectation('foo', 'Not:Uses:baz')).to eq('<strong>foo</strong> não deve use <strong>baz</strong>') }
+    it { expect(translate_expectation('foo', 'Not:UsesLambda')).to eq('<strong>foo</strong> não deve usar expressões lambda') }
+  end
 
   context 'es locale' do
     before { I18n.locale = :es }
