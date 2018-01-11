@@ -18,7 +18,7 @@ describe Mumukit::Inspection::I18n do
     before { I18n.locale = :pt }
 
     it { expect(translate_expectation('*', 'Declares:foo')).to eq('a solução deve declarar <strong>foo</strong>') }
-    it { expect(translate_expectation('foo', 'Not:Uses:baz')).to eq('<strong>foo</strong> não deve use <strong>baz</strong>') }
+    it { expect(translate_expectation('foo', 'Not:Uses:baz')).to eq('<strong>foo</strong> não deve usar <strong>baz</strong>') }
     it { expect(translate_expectation('foo', 'Not:UsesLambda')).to eq('<strong>foo</strong> não deve usar expressões lambda') }
   end
 
@@ -31,11 +31,11 @@ describe Mumukit::Inspection::I18n do
       it { expect(translate_expectation('foo', 'HasTypeDeclaration')).to eq('la solución debe declarar un sinónimo de tipo <strong>foo</strong>') }
       it { expect(translate_expectation('foo', 'HasTypeSignature')).to eq('la solución debe declarar una firma <strong>foo</strong>') }
       it { expect(translate_expectation('foo', 'HasRepeat')).to eq('<strong>foo</strong> debe usar <i>repeat</i>') }
-      it { expect(translate_expectation('foo', 'HasNot')).to eq('<strong>foo</strong> debe utilizar not') }
+      it { expect(translate_expectation('foo', 'HasNot')).to eq('<strong>foo</strong> debe utilizar <i>not</i>') }
       it { expect(translate_expectation('foo', 'HasLambda')).to eq('<strong>foo</strong> debe emplear expresiones lambda') }
-      it { expect(translate_expectation('foo', 'HasIf')).to eq('<strong>foo</strong> debe usar if') }
-      it { expect(translate_expectation('foo', 'HasForall')).to eq('<strong>foo</strong> debe utilizar forall') }
-      it { expect(translate_expectation('foo', 'HasFindall')).to eq('<strong>foo</strong> debe utilizar findall') }
+      it { expect(translate_expectation('foo', 'HasIf')).to eq('<strong>foo</strong> debe usar <i>if</i>') }
+      it { expect(translate_expectation('foo', 'HasForall')).to eq('<strong>foo</strong> debe utilizar <i>forall</i>') }
+      it { expect(translate_expectation('foo', 'HasFindall')).to eq('<strong>foo</strong> debe utilizar <i>findall</i>') }
       it { expect(translate_expectation('foo', 'HasComprehension')).to eq('<strong>foo</strong> debe emplear listas por comprensión') }
       it { expect(translate_expectation('foo', 'HasDirectRecursion')).to eq('<strong>foo</strong> debe estar declarado recursivamente') }
       it { expect(translate_expectation('foo', 'HasComposition')).to eq('<strong>foo</strong> debe usar composición') }
@@ -52,7 +52,7 @@ describe Mumukit::Inspection::I18n do
       it { expect(translate_expectation('foo', 'Declares')).to eq('<strong>foo</strong> debe contener declaraciones') }
 
       it { expect(translate_expectation('foo.bar', 'DeclaresMethod')).to eq('<strong>foo.bar</strong> debe declarar métodos') }
-      it { expect(translate_expectation('foo.bar', 'UsesIf')).to eq('<strong>foo.bar</strong> debe usar if') }
+      it { expect(translate_expectation('foo.bar', 'UsesIf')).to eq('<strong>foo.bar</strong> debe usar <i>if</i>') }
 
       it { expect(translate_expectation('Intransitive:foo', 'Not:UsesLambda')).to eq('<strong>foo</strong> no debe emplear expresiones lambda') }
 
@@ -63,7 +63,7 @@ describe Mumukit::Inspection::I18n do
       it { expect(translate_expectation('foo', 'DeclaresMethod:*')).to eq('<strong>foo</strong> debe declarar métodos') }
       it { expect(translate_expectation('foo', 'Uses:baz')).to eq('<strong>foo</strong> debe utilizar <strong>baz</strong>') }
       it { expect(translate_expectation('foo', 'Uses')).to eq('<strong>foo</strong> debe delegar') }
-      it { expect(translate_expectation('foo', 'UsesForall')).to eq('<strong>foo</strong> debe utilizar forall') }
+      it { expect(translate_expectation('foo', 'UsesForall')).to eq('<strong>foo</strong> debe utilizar <i>forall</i>') }
 
       it { expect(translate_expectation('foo', 'Not:Uses:=baz')).to eq('<strong>foo</strong> no debe utilizar <strong>baz</strong>') }
       it { expect(translate_expectation('foo', 'Not:Uses:~baz')).to eq('<strong>foo</strong> no debe delegar en algo parecido a <strong>baz</strong>') }
@@ -86,7 +86,7 @@ describe Mumukit::Inspection::I18n do
       it { expect(translate_expectation('foo', 'HasRedundantIf')).to eq('<strong>foo</strong> tiene ifs innecesarios') }
       it { expect(translate_expectation('foo', 'HasRedundantBooleanComparison')).to eq('<strong>foo</strong> hace comparaciones booleanas innecesarias') }
       it { expect(translate_expectation('bar', 'UsesFail')).to eq('<strong>bar</strong> usa <i>fail</li>, lo cual es una mala práctica') }
-      it { expect(translate_expectation('foo', 'HasEmptyIfBranches')).to eq('<strong>foo</strong> tiene ramas de if vacías') }
+      it { expect(translate_expectation('foo', 'HasEmptyIfBranches')).to eq('<strong>foo</strong> tiene ramas de <i>if</i> vacías') }
     end
   end
 end
