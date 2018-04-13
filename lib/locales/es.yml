@@ -76,7 +76,7 @@ es:
   expectation_DeclaresTypeAlias_except: '%{binding} %{must} declarar sinónimos de tipo diferentes a %{target}'
   expectation_DeclaresTypeAlias_like: '%{binding} %{must} declarar un sinónimo de tipo parecido a %{target}'
   expectation_DeclaresTypeAlias_named: '%{binding} %{must} declarar un sinónimo de tipo %{target}'
-  expectation_DeclaresTypeSignature: '%{binding} %{must} decarar firmas de tipos'
+  expectation_DeclaresTypeSignature: '%{binding} %{must} declarar firmas de tipos'
   expectation_DeclaresTypeSignature_except: '%{binding} %{must} declarar firmas de tipos diferentes a %{target}'
   expectation_DeclaresTypeSignature_like: '%{binding} %{must} declarar una firma para algo parecido %{target}'
   expectation_DeclaresTypeSignature_named: '%{binding} %{must} declarar una firma %{target}'
