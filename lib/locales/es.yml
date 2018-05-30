@@ -137,6 +137,8 @@ es:
   expectation_Rescues_named: '%{binding} %{must} capturar %{target}'
   expectation_ReturnsNull: '%{binding} retorna null, lo cual es una mala práctica'
   expectation_solution: la solución
+  expectation_TypesAs: '%{binding} %{must} tipar'
+  expectation_TypesAs_named: '%{binding} %{must} ser de tipo %{target}'
   expectation_Uses: '%{binding} %{must} delegar'
   expectation_Uses_except: '%{binding} %{must} delegar en algo diferente a %{target}'
   expectation_Uses_like: '%{binding} %{must} delegar en algo parecido a %{target}'
