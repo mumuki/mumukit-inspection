@@ -95,6 +95,7 @@ es:
   expectation_DiscardsExceptions: '%{binding} está ignorando exceptiones silenciosamiente.'
   expectation_DoesConsolePrint: '%{binding} está realizando impresiones por pantalla.'
   expectation_DoesNilTest: '%{binding} hace comparaciones contra <i>null</i>'
+  expectation_DoesNullTest: '%{binding} hace comparaciones contra <i>null</i>'
   expectation_DoesTypeTest: '%{binding} hace comparaciones contra strings'
   expectation_HasAssignmentReturn: '%{binding} devuelve el resultado de una asignación'
   expectation_HasCodeDuplication: '%{binding} tiene código repetido'
@@ -136,6 +137,7 @@ es:
   expectation_Rescues_like: '%{binding} %{must} capturar excepciones parecidas a %{target}'
   expectation_Rescues_named: '%{binding} %{must} capturar %{target}'
   expectation_ReturnsNil: '%{binding} retorna null, lo cual es una mala práctica'
+  expectation_ReturnsNull: '%{binding} retorna null, lo cual es una mala práctica'
   expectation_solution: la solución
   expectation_TypesAs: '%{binding} %{must} tipar'
   expectation_TypesAs_named: '%{binding} %{must} ser de tipo %{target}'

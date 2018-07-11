@@ -81,6 +81,7 @@ en:
   expectation_DeclaresVariable_like: '%{binding} %{must} declare a variable similar to %{target}'
   expectation_DeclaresVariable_named: '%{binding} %{must} declare a variable %{target}'
   expectation_DoesNilTest: '%{binding} does null tests'
+  expectation_DoesNullTest: '%{binding} does null tests'
   expectation_DoesTypeTest: '%{binding} string type tests'
   expectation_HasAssignmentReturn: '%{binding} returns the result of an assignment'
   expectation_HasCodeDuplication: '%{binding} has code duplication'
@@ -99,6 +100,7 @@ en:
   expectation_must: must
   expectation_must_not: must not
   expectation_ReturnsNil: '%{binding} retuns null, which is a bad practice'
+  expectation_ReturnsNull: '%{binding} retuns null, which is a bad practice'
   expectation_solution: solution
   expectation_TypesAs: '%{binding} %{must} type'
   expectation_TypesAs_named: '%{binding} %{must} type as %{target}'
