@@ -1,6 +1,28 @@
-require 'mumukit/core'
+require 'opal-parser'
+require 'i18n'
+require 'i18n/backend/simple'
 
-I18n.load_translations_path File.join(__dir__, '..', 'locales', '*.yml')
+puts '1'
+module I18n
+  module Base
+    module Thread
+      def self.current
+        @current ||= {}
+      end
+    end
+  end
+end
+
+puts '2'
+require 'mumukit/core'
+require 'mumukit/core/i18n'
+
+puts '3'
+
+__dir__  = File.dirname(File.realpath(__FILE__))
+#sI18n.load_translations_path File.join(__dir__, '..', 'locales', '*.yml')
+
+puts '4'
 
 require_relative '../mumukit/inspection/version'
 
