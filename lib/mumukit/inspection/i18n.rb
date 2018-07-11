@@ -1,12 +1,27 @@
 module Mumukit::Inspection::I18n
   class << self
-    def translate(e)
+    DEFAULT_KEYWORDS = {
+      keyword_null: :null,
+      keyword_if: :if,
+      keyword_is: :is,
+      keyword_fail: :fail,
+      keyword_findall: :findall,
+      keyword_forall: :forall,
+      keyword_foreach: :foreach,
+      keyword_not: :not,
+      keyword_repeat: :repeat,
+      keyword_switch: :switch,
+      keyword_while: :while,
+    }
+
+    def translate(e, keywords = DEFAULT_KEYWORDS)
       e = e.as_v2
       key = key_for e.binding, e.inspection
-      ::I18n.t key,
-      binding: t_binding(e.binding),
-      target: t_target(e.inspection),
-      must: t_must(e.inspection)
+      ::I18n.t key, {
+               binding: t_binding(e.binding),
+               target: t_target(e.inspection),
+               must: t_must(e.inspection)
+              }.merge(keywords)
     rescue
       '<unknown expectation>'
     end
