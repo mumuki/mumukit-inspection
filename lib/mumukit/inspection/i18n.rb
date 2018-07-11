@@ -14,14 +14,10 @@ module Mumukit::Inspection::I18n
       keyword_while: :while,
     }
 
-    def translate(e, keywords = DEFAULT_KEYWORDS)
+    def translate(e, keywords = nil)
       e = e.as_v2
       key = key_for e.binding, e.inspection
-      ::I18n.t key, {
-               binding: t_binding(e.binding),
-               target: t_target(e.inspection),
-               must: t_must(e.inspection)
-              }.merge(keywords)
+      ::I18n.t key, translation_params(e, keywords)
     rescue
       '<unknown expectation>'
     end
@@ -29,6 +25,14 @@ module Mumukit::Inspection::I18n
     alias t translate
 
     private
+
+    def translation_params(e, keywords)
+      {
+        binding: t_binding(e.binding),
+        target: t_target(e.inspection),
+        must: t_must(e.inspection)
+      }.merge(DEFAULT_KEYWORDS).merge(keywords || {})
+    end
 
     def key_for(binding, inspection)
       "expectation_#{inspection.type}#{inspection.target ? inspection.target.i18n_suffix : nil }"

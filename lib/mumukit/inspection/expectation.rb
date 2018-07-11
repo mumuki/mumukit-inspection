@@ -18,8 +18,8 @@ class Mumukit::Inspection::Expectation
     raise "Wrong inspection #{to_h}" unless inspection?
   end
 
-  def translate
-    Mumukit::Inspection::I18n.translate self
+  def translate(keywords = nil)
+    Mumukit::Inspection::I18n.translate self, keywords
   end
 
   def to_h
