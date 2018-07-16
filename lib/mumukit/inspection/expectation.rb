@@ -3,7 +3,8 @@ class Mumukit::Inspection::Expectation
   SMELLS = %w(HasAssignmentReturn HasCodeDuplication HasEmptyIfBranches HasMisspelledIdentifiers
               HasRedundantBooleanComparison HasRedundantGuards HasRedundantIf
               HasRedundantLambda HasRedundantLocalVariableReturn HasRedundantParameter
-              HasRedundantReduction HasTooShortIdentifiers HasWrongCaseIdentifiers)
+              HasRedundantReduction HasTooShortIdentifiers HasWrongCaseIdentifiers
+              HasUnreachableCode)
 
   attr_accessor :binding, :inspection
 

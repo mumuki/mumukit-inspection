@@ -95,6 +95,7 @@ en:
   expectation_HasRedundantParameter: '%{binding} has unnecessary parameters, that can be removed using point-free'
   expectation_HasRedundantReduction: '%{binding} uses <i>is</i>, but it does not artihmetic.'
   expectation_HasTooShortBindings: '%{binding} is a too short identifier'
+  expectation_HasUnreachableCode: '%{binding} has unreachable code.'
   expectation_HasWrongCaseBindings: '%{binding} does not honor case conventions'
   expectation_IsLongCode: '%{binding} is too long'
   expectation_must: must

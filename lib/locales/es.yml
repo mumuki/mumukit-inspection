@@ -111,6 +111,7 @@ es:
   expectation_HasRedundantReduction: '%{binding} usa <i>is</i>, pero no realiza cálculos.'
   expectation_HasTooShortBindings: '%{binding} es un identificador muy corto'
   expectation_HasTooShortIdentifiers: '%{binding} es un identificador muy corto'
+  expectation_HasUnreachableCode: '%{binding} tiene código inalcanzable.'
   expectation_HasWrongCaseBindings: '%{binding} no respeta la convención de nombres'
   expectation_HasWrongCaseIdentifiers: '%{binding} no respeta la convención de nombres'
   expectation_Implements: '%{binding} %{must} implementar intefaces'
