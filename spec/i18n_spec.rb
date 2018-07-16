@@ -87,6 +87,7 @@ describe Mumukit::Inspection::I18n do
       it { expect(translate_expectation('foo', 'HasRedundantBooleanComparison')).to eq('<strong>foo</strong> hace comparaciones booleanas innecesarias') }
       it { expect(translate_expectation('bar', 'UsesFail')).to eq('<strong>bar</strong> usa <i>fail</li>, lo cual es una mala práctica') }
       it { expect(translate_expectation('foo', 'HasEmptyIfBranches')).to eq('<strong>foo</strong> tiene ramas de <i>if</i> vacías') }
+      it { expect(translate_expectation('foo', 'HasUnreachableCode')).to eq('<strong>foo</strong> tiene código inalcanzable.') }
     end
   end
 end
