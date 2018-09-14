@@ -147,6 +147,8 @@ pt:
   expectation_SourceRepeats_named: 'a solução  %{must} usar %{target} mais de uma vez'
   expectation_TypesAs_named: '%{binding} %{must} é do tipo %{target}'
   expectation_TypesAs: '%{binding} %{must} tem tipo'
+  expectation_TypesReturnAs_named: '%{binding} %{must} tem tipo de valor de retorno %{target}'
+  expectation_TypesReturnAs: '%{binding} %{must} tem tipo de valor de retorno'
   expectation_Uses_except: '%{binding} %{must} delegar algo diferente para %{target}'
   expectation_Uses_like: '%{binding} %{must} delegar algo semelhante ao %{target}'
   expectation_Uses_named: '%{binding} %{must} usar %{target}'

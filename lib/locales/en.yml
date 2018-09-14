@@ -109,6 +109,8 @@ en:
   expectation_SourceRepeats_named: 'solution %{must} use %{target} more than one time'
   expectation_TypesAs_named: '%{binding} %{must} type as %{target}'
   expectation_TypesAs: '%{binding} %{must} type'
+  expectation_TypesReturnAs_named: '%{binding} %{must} type its return value as %{target}'
+  expectation_TypesReturnAs: '%{binding} %{must} type its return value'
   expectation_Uses_except: '%{binding} %{must} delegate to something distinct from %{target}'
   expectation_Uses_like: '%{binding} %{must} delegate to something similar to %{target}'
   expectation_Uses_named: '%{binding} %{must} use %{target}'
