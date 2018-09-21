@@ -12,6 +12,7 @@ describe Mumukit::Inspection::I18n do
     it { expect(expectation('*', 'Declares:foo').translate).to eq('solution must declare <strong>foo</strong>') }
     it { expect(expectation('foo', 'Not:Uses:baz').translate).to eq('<strong>foo</strong> must not use <strong>baz</strong>') }
     it { expect(expectation('foo', 'Not:UsesLambda').translate).to eq('<strong>foo</strong> must not use lambda expressions') }
+    it { expect(expectation('*', 'UsesStaticPolymorphism').translate).to eq('solution must use polymorphism') }
   end
 
   context 'pt locale' do
@@ -20,6 +21,8 @@ describe Mumukit::Inspection::I18n do
     it { expect(expectation('*', 'Declares:foo').translate).to eq('a solução deve declarar <strong>foo</strong>') }
     it { expect(expectation('foo', 'Not:Uses:baz').translate).to eq('<strong>foo</strong> não deve usar <strong>baz</strong>') }
     it { expect(expectation('foo', 'Not:UsesLambda').translate).to eq('<strong>foo</strong> não deve usar expressões lambda') }
+    it { expect(expectation('*', 'UsesStaticPolymorphism').translate).to eq('a solução deve usar polimorfismo') }
+
   end
 
   context 'es locale' do
@@ -91,6 +94,7 @@ describe Mumukit::Inspection::I18n do
       it { expect(expectation('*', 'Not:DeclaresClass').translate).to eq('la solución no debe declarar clases') }
       it { expect(expectation('foo', 'HasAnonymousVariable').translate).to eq('<strong>foo</strong> debe utilizar una variable anónima') }
       it { expect(expectation('foo', 'UsesAnonymousVariable').translate).to eq('<strong>foo</strong> debe utilizar una variable anónima') }
+      it { expect(expectation('*', 'UsesStaticPolymorphism').translate).to eq('la solución debe usar polimorfismo') }
 
       it { expect(expectation('foo', 'UsesIf').translate(keyword_if: 'si')).to eq('<strong>foo</strong> debe usar <i>si</i>') }
       it { expect(expectation('foo', 'UsesIf').translate(keyword_repeat: 'repetir')).to eq('<strong>foo</strong> debe usar <i>if</i>') }
