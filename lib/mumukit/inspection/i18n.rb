@@ -35,15 +35,15 @@ module Mumukit::Inspection::I18n
     end
 
     def key_for(binding, inspection)
-      "expectation_#{inspection.type}#{inspection.target ? inspection.target.i18n_suffix : nil }"
+      "mumukit.inspection.#{inspection.type}#{inspection.target ? inspection.target.i18n_suffix : nil}"
     end
 
     def t_binding(binding)
-      binding == '*' ? ::I18n.t("expectation_solution") : "<strong>#{Mumukit::Inspection.parse_binding_name binding}</strong>"
+      binding == '*' ? ::I18n.t("mumukit.expectation.solution") : "<strong>#{Mumukit::Inspection.parse_binding_name binding}</strong>"
     end
 
     def t_must(parsed)
-      ::I18n.t("expectation_#{parsed.negated? ? 'must_not' : 'must' }")
+      ::I18n.t("mumukit.expectation.#{parsed.negated? ? 'must_not' : 'must' }")
     end
 
     def t_target(parsed)
