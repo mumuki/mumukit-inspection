@@ -152,6 +152,7 @@ en:
   expectation_UsesGuards: '%{binding} %{must} use guards'
   expectation_UsesIf: '%{binding} %{must} use <i>%{keyword_if}</i>'
   expectation_UsesLambda: '%{binding} %{must} use lambda expressions'
+  expectation_UsesLoop: '%{binding} %{must} use a loop'
   expectation_UsesNot: '%{binding} %{must} use not'
   expectation_UsesObjectComposition: '%{binding} %{must} use composition'
   expectation_UsesPatternMatching: '%{binding} %{must} use pattern matching'

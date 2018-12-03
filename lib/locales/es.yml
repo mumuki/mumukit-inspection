@@ -169,6 +169,7 @@ es:
   expectation_UsesIf: '%{binding} %{must} usar <i>%{keyword_if}</i>'
   expectation_UsesInheritance: '%{binding} %{must} usar herencia'
   expectation_UsesLambda: '%{binding} %{must} emplear expresiones lambda'
+  expectation_UsesLoop: '%{binding} %{must} usar un bucle'
   expectation_UsesMixins: '%{binding} %{must} usar mixins'
   expectation_UsesNot: '%{binding} %{must} utilizar <i>%{keyword_not}</i>'
   expectation_UsesObjectComposition: '%{binding} %{must} usar composición'

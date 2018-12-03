@@ -50,6 +50,7 @@ describe Mumukit::Inspection::I18n do
       it { expect(expectation('foo', 'HasComprehension').translate).to eq('<strong>foo</strong> debe emplear listas por comprensión') }
       it { expect(expectation('foo', 'HasDirectRecursion').translate).to eq('<strong>foo</strong> debe estar declarado recursivamente') }
       it { expect(expectation('foo', 'HasComposition').translate).to eq('<strong>foo</strong> debe usar composición') }
+      it { expect(expectation('foo', 'UsesLoop').translate).to eq('<strong>foo</strong> debe usar un bucle') }
 
       it { expect(expectation('foo', 'HasIf').translate(keyword_if: 'si')).to eq('<strong>foo</strong> debe usar <i>si</i>') }
       it { expect(expectation('foo', 'HasIf').translate(keyword_repeat: 'repetir')).to eq('<strong>foo</strong> debe usar <i>if</i>') }

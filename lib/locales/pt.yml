@@ -170,6 +170,7 @@ pt:
   expectation_UsesIf: '%{binding} %{must} usar <i>%{keyword_if}</i>'
   expectation_UsesInheritance: '%{binding} %{must} usar herança'
   expectation_UsesLambda: '%{binding} %{must} usar expressões lambda'
+  expectation_UsesLoop: '%{binding} %{must} usar um loop'
   expectation_UsesMixins: '%{binding} %{must} usar mixins'
   expectation_UsesNot: '%{binding} %{must} usar <i>%{keyword_not}</i>'
   expectation_UsesObjectComposition: '%{binding} %{must} usar composição'
