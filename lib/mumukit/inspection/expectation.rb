@@ -1,10 +1,11 @@
 class Mumukit::Inspection::Expectation
 
-  SMELLS = %w(HasAssignmentReturn HasCodeDuplication HasEmptyIfBranches HasMisspelledIdentifiers
+  SMELLS = %w(DiscardsExceptions DoesConsolePrint DoesNullTest DoesTypeTest
+              HasAssignmentReturn HasCodeDuplication HasEmptyIfBranches HasMisspelledIdentifiers
               HasRedundantBooleanComparison HasRedundantGuards HasRedundantIf
               HasRedundantLambda HasRedundantLocalVariableReturn HasRedundantParameter
-              HasRedundantReduction HasTooShortIdentifiers HasWrongCaseIdentifiers
-              HasUnreachableCode)
+              HasRedundantReduction HasTooShortIdentifiers HasUnreachableCode
+              HasWrongCaseIdentifiers IsLongCode ReturnsNull UsesCut UsesFail UsesUnificationOperator)
 
   attr_accessor :binding, :inspection
 
