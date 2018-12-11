@@ -106,6 +106,7 @@ es:
       HasAssignmentReturn: '%{binding} devuelve el resultado de una asignación'
       HasCodeDuplication: '%{binding} tiene código repetido'
       HasEmptyIfBranches: '%{binding} tiene ramas de <i>%{keyword_if}</i> vacías'
+      HasLongParameterList: '%{binding} tiene una lista de parámetros muy larga. Te podría estar faltando una abstracción.'
       HasMisspelledBindings: '%{binding} está mal escrito. Revisá la ortografía y procurá no usar abreviaturas'
       HasMisspelledIdentifiers: '%{binding} está mal escrito. Revisá la ortografía y procurá no usar abreviaturas'
       HasRedundantBooleanComparison: '%{binding} hace comparaciones booleanas innecesarias'
