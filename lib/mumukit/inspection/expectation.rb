@@ -1,7 +1,7 @@
 class Mumukit::Inspection::Expectation
 
   SMELLS = %w(DiscardsExceptions DoesConsolePrint DoesNullTest DoesTypeTest
-              HasAssignmentReturn HasCodeDuplication HasEmptyIfBranches HasMisspelledIdentifiers
+              HasAssignmentReturn HasCodeDuplication HasEmptyIfBranches HasLongParameterList HasMisspelledIdentifiers
               HasRedundantBooleanComparison HasRedundantGuards HasRedundantIf
               HasRedundantLambda HasRedundantLocalVariableReturn HasRedundantParameter
               HasRedundantReduction HasTooShortIdentifiers HasUnreachableCode
