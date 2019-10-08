@@ -1,47 +1,38 @@
-require 'mumukit/core'
+require 'mulang'
 
-I18n.load_translations_path File.join(__dir__, '..', 'locales', '*.yml')
-
-require_relative '../mumukit/inspection/version'
+I18n.load_translations_path File.join(__dir__, 'locales', '*.yml')
 
 module Mumukit
-  class Inspection
-    attr_accessor :type, :target, :negated
-    alias negated? negated
-
-    def initialize(type, target, negated=false)
-      @type = type
-      @target = target
-      @negated = negated
-    end
-
-    def to_s
-      "#{negated_to_s}#{type}#{target_to_s}"
-    end
-
-    def negated_to_s
-      negated ? 'Not:' : nil
-    end
-
-    def target_to_s
-      target ? ":#{target.to_s}" : nil
-    end
-
-    def self.parse_binding_name(binding_s)
-      if binding_s.start_with? 'Intransitive:'
-        binding_s[13..-1]
-      else
-        binding_s
+  module Inspection
+    module Extension
+      def new_inspection(match)
+        if match
+          Mulang::Inspection.new match['type'],
+                                Mulang::Inspection::Target.new(:unknown, match['target']),
+                                negated: match['negation'].present?,
+                                i18n_namespace: 'mumukit.inspection'
+        end
       end
     end
 
-    def self.parse(insepection_s)
-      raise "Invalid inspection #{insepection_s}" unless insepection_s =~ /^(Not\:)?([^\:]+)\:?(.+)?$/
-      Inspection.new($2, Mumukit::Inspection::Target.parse($3), $1.present?)
+    module Css
+      extend Mumukit::Inspection::Extension
+
+      REGEXP = /^(?<negation>Not:)?(?<type>DeclaresStyle|DeclaresTag):(?<target>.*)$/
+
+      def self.parse(inspection_s)
+        new_inspection REGEXP.match(inspection_s)
+      end
+    end
+
+    module Source
+      extend Mumukit::Inspection::Extension
+
+      REGEXP = /^(?<negation>Not:)?(?<type>SourceRepeats|SourceContains|SourceEquals|SourceEqualsIgnoreSpaces):(?<target>.*)$/
+
+      def self.parse(inspection_s)
+        new_inspection REGEXP.match(inspection_s)
+      end
     end
   end
 end
-
-require_relative '../mumukit/inspection/target'
-require_relative '../mumukit/inspection/expectation'
-require_relative '../mumukit/inspection/i18n'

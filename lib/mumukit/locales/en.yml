@@ -1,0 +1,16 @@
+---
+en:
+  mumukit:
+    inspection:
+      DeclaresStyle_except: '%{binding} %{must} declare style distinct from %{target}'
+      DeclaresStyle_like: '%{binding} %{must} declare a style similar to %{target}'
+      DeclaresStyle_named: '%{binding} %{must} declare a style %{target}'
+      DeclaresStyle: '%{binding} %{must} declare styles'
+      DeclaresTag_except: '%{binding} %{must} declare a tag distinct from %{target}'
+      DeclaresTag_like: '%{binding} %{must} declare a tag similar to %{target}'
+      DeclaresTag_named: '%{binding} %{must} declare a tag %{target}'
+      DeclaresTag: '%{binding} %{must} declare a tag'
+      SourceContains_named: 'solution %{must} use %{target}'
+      SourceEquals_named: 'solution %{must} be equal to %{target}'
+      SourceEqualsIgnoreSpaces_named: 'solution %{must} be equal to %{target}'
+      SourceRepeats_named: 'solution %{must} use %{target} more than one time'
