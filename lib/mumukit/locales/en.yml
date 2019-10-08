@@ -2,10 +2,10 @@
 en:
   mumukit:
     inspection:
-      DeclaresStyles_except: '%{binding} %{must} declare style distinct from %{target}'
-      DeclaresStyles_like: '%{binding} %{must} declare a style similar to %{target}'
-      DeclaresStyles_named: '%{binding} %{must} declare a style %{target}'
-      DeclaresStyles: '%{binding} %{must} declare styles'
+      DeclaresStyle_except: '%{binding} %{must} declare style distinct from %{target}'
+      DeclaresStyle_like: '%{binding} %{must} declare a style similar to %{target}'
+      DeclaresStyle_named: '%{binding} %{must} declare a style %{target}'
+      DeclaresStyle: '%{binding} %{must} declare styles'
       DeclaresTag_except: '%{binding} %{must} declare a tag distinct from %{target}'
       DeclaresTag_like: '%{binding} %{must} declare a tag similar to %{target}'
       DeclaresTag_named: '%{binding} %{must} declare a tag %{target}'
