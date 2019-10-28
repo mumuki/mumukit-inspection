@@ -1,6 +1,5 @@
 require_relative './spec_helper'
 
-
 describe Mumukit::Inspection::Source do
   before { Mulang::Inspection.register_extension! Mumukit::Inspection::Source }
   after { Mulang::Inspection.unregister_extension! Mumukit::Inspection::Source }
