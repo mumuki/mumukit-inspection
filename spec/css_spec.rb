@@ -1,6 +1,5 @@
 require_relative './spec_helper'
 
-
 describe Mumukit::Inspection::Css do
   before { Mulang::Inspection.register_extension! Mumukit::Inspection::Css }
   after { Mulang::Inspection.unregister_extension! Mumukit::Inspection::Css }

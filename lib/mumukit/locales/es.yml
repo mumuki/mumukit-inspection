@@ -2,6 +2,8 @@
 es:
   mumukit:
     inspection:
+      DeclaresAttribute_named: '%{binding} %{must} declarar un atributo HTML %{target}'
+      DeclaresAttribute: '%{binding} %{must} declarar atributos HTML'
       DeclaresStyle_except: '%{binding} %{must} declarar un estilo diferente a %{target}'
       DeclaresStyle_like: '%{binding} %{must} declarar un estilo parecido a %{target}'
       DeclaresStyle_named: '%{binding} %{must} declarar un estilo %{target}'

@@ -25,6 +25,16 @@ module Mumukit
       end
     end
 
+    module Html
+      extend Mumukit::Inspection::Extension
+
+      REGEXP = /^(?<negation>Not:)?(?<type>DeclaresAttribute):(?<target>(href|src)=.*)$/
+
+      def self.parse(inspection_s)
+        new_inspection REGEXP.match(inspection_s)
+      end
+    end
+
     module Source
       extend Mumukit::Inspection::Extension
 
