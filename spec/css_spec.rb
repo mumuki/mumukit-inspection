@@ -17,8 +17,8 @@ describe Mumukit::Inspection::Css do
   describe 'i18n' do
     before { I18n.locale = :es }
 
-    it { expect(expectation('css:span', 'DeclaresStyle:background-color:yellow').translate!).to eq '<strong>css:span</strong> debe declarar un estilo <strong>background-color:yellow</strong>' }
-    it { expect(expectation('html/body/section/article/h4', 'DeclaresAttribute:class="titulo-pelicula"').translate!).to eq '<strong>html/body/section/article/h4</strong> debe declarar un atributo <strong>class="titulo-pelicula"</strong>' }
-    it { expect(expectation('html/body/section/nav', 'DeclaresTag:ul').translate!).to eq '<strong>html/body/section/nav</strong> debe declarar un elemento <strong>ul</strong>' }
+    it { expect(expectation('css:span', 'DeclaresStyle:background-color:yellow').translate!).to eq '<code>css:span</code> debe declarar un estilo <code>background-color:yellow</code>' }
+    it { expect(expectation('html/body/section/article/h4', 'DeclaresAttribute:class="titulo-pelicula"').translate!).to eq '<code>html/body/section/article/h4</code> debe declarar un atributo <code>class="titulo-pelicula"</code>' }
+    it { expect(expectation('html/body/section/nav', 'DeclaresTag:ul').translate!).to eq '<code>html/body/section/nav</code> debe declarar un elemento <code>ul</code>' }
   end
 end

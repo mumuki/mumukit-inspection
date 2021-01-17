@@ -18,10 +18,10 @@ describe Mumukit::Inspection::Source do
     before { I18n.locale = :es }
 
     describe 'source exectations' do
-      it { expect(expectation('*', 'SourceRepeats:foo(X)').translate).to eq('la solución debe usar <strong>foo(X)</strong> más de una vez') }
-      it { expect(expectation('*', 'SourceContains:foo(X)').translate).to eq('la solución debe usar <strong>foo(X)</strong>') }
-      it { expect(expectation('*', 'SourceEquals:foo(X)').translate).to eq('la solución debe ser igual a <strong>foo(X)</strong>') }
-      it { expect(expectation('*', 'SourceEqualsIgnoreSpaces:foo(X)').translate).to eq('la solución debe ser igual a <strong>foo(X)</strong>') }
+      it { expect(expectation('*', 'SourceRepeats:foo(X)').translate).to eq('la solución debe usar <code>foo(X)</code> más de una vez') }
+      it { expect(expectation('*', 'SourceContains:foo(X)').translate).to eq('la solución debe usar <code>foo(X)</code>') }
+      it { expect(expectation('*', 'SourceEquals:foo(X)').translate).to eq('la solución debe ser igual a <code>foo(X)</code>') }
+      it { expect(expectation('*', 'SourceEqualsIgnoreSpaces:foo(X)').translate).to eq('la solución debe ser igual a <code>foo(X)</code>') }
     end
   end
 end
