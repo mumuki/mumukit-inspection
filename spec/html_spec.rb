@@ -29,7 +29,6 @@ describe Mumukit::Inspection::Html do
   describe 'i18n' do
     before { I18n.locale = :es }
 
-    it { expect(expectation('a', 'DeclaresAttribute:href="https://mumuki.org"').translate!).to eq '<strong>a</strong> debe declarar un atributo HTML <strong>href="https://mumuki.org"</strong>' }
+    it { expect(expectation('a', 'DeclaresAttribute:href="https://mumuki.org"').translate!).to eq '<code>a</code> debe declarar un atributo HTML <code>href="https://mumuki.org"</code>' }
   end
 end
-
