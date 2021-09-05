@@ -44,5 +44,25 @@ module Mumukit
         new_inspection REGEXP.match(inspection_s)
       end
     end
+
+    module JavaScript
+      extend Mumukit::Inspection::Extension
+
+      REGEXP = /^(?<type>JavaScript#LacksOfEndingSemicolon|JavaScript#HasInconsistentBraces)$/
+
+      def self.parse(inspection_s)
+        new_inspection REGEXP.match(inspection_s)
+      end
+    end
+
+    module Formatting
+      extend Mumukit::Inspection::Extension
+
+      REGEXP = /^(?<type>HasInconsistentIndentation|HasEmptyCodeBlock)$/
+
+      def self.parse(inspection_s)
+        new_inspection REGEXP.match(inspection_s)
+      end
+    end
   end
 end
