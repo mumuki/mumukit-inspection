@@ -16,5 +16,4 @@ pt:
       SourceEquals_named: 'a solução  %{must} ser igual a %{target}'
       SourceEqualsIgnoreSpaces_named: 'a solução  %{must} ser igual a %{target}'
       SourceRepeats_named: 'a solução  %{must} usar %{target} mais de uma vez'
-      JavaScript#HasEmptyCodeBlock: 'há um bloco de código vazio que você pode remover em <pre>%{binding}</pre>'
       JavaScript#LacksOfEndingSemicolon: 'a seguinte linha deve terminar em <code>;</code>: <pre>%{binding}</pre>'

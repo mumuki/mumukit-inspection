@@ -52,7 +52,7 @@ module Mumukit
     module JavaScript
       extend Mumukit::Inspection::Extension
 
-      REGEXP = /^(?<type>JavaScript#LacksOfEndingSemicolon|JavaScript#FormatsBracesInconsistently|JavaScript#IndentsInconsistently|JavaScript#HasEmptyCodeBlock)$/
+      REGEXP = /^(?<type>JavaScript#LacksOfEndingSemicolon)$/
 
       def self.parse(inspection_s)
         new_inspection REGEXP.match(inspection_s)
