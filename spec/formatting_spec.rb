@@ -8,7 +8,6 @@ describe Mumukit::Inspection::Formatting do
     let(:inspection_s) { 'HasInconsistentIndentation' }
 
     it { expect(Mulang::Inspection.parse(inspection_s)).to json_like(type: 'HasInconsistentIndentation',
-                                                                      target: { type: :unknown },
                                                                       negated: false,
                                                                       i18n_namespace: "mumukit.inspection") }
     it { expect(Mulang::Inspection.parse(inspection_s).to_s).to eq inspection_s }

@@ -8,7 +8,6 @@ describe Mumukit::Inspection::JavaScript do
     let(:inspection_s) { 'JavaScript#LacksOfEndingSemicolon' }
 
     it { expect(Mulang::Inspection.parse(inspection_s)).to json_like(type: 'JavaScript#LacksOfEndingSemicolon',
-                                                                      target: { type: :unknown },
                                                                       negated: false,
                                                                       i18n_namespace: "mumukit.inspection") }
     it { expect(Mulang::Inspection.parse(inspection_s).to_s).to eq inspection_s }

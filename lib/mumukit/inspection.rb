@@ -8,10 +8,14 @@ module Mumukit
       def new_inspection(match)
         if match
           Mulang::Inspection.new match['type'],
-                                Mulang::Inspection::Target.new(:unknown, match['target']),
-                                negated: match['negation'].present?,
-                                i18n_namespace: 'mumukit.inspection'
+                                 new_target(match),
+                                 negated: match.names.include?('negation') && match['negation'].present?,
+                                 i18n_namespace: 'mumukit.inspection'
         end
+      end
+
+      def new_target(match)
+        Mulang::Inspection::Target.new(:unknown, match['target']) if match.names.include?('target')
       end
     end
 
