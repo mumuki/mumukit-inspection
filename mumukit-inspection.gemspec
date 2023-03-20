@@ -7,7 +7,7 @@ Gem::Specification.new do |spec|
   spec.name          = 'mumukit-inspection'
   spec.version       = Mumukit::Inspection::VERSION
   spec.authors       = ['Franco Leonardo Bulgarelli']
-  spec.email         = ['flbulgarelli@yahoo.com.ar']
+  spec.email         = ['franco@mumuki.org']
   spec.summary       = 'Minimal library for parsing Mumuki inspection language'
   spec.homepage      = ""
   spec.license       = 'MIT'
@@ -17,12 +17,12 @@ Gem::Specification.new do |spec|
   spec.test_files    = spec.files.grep(%r{^(test|spec|features)/})
   spec.require_paths = ['lib']
 
-  spec.add_dependency 'mumukit-core', '> 1.0', '< 2'
+  spec.add_dependency 'mumukit-core', '~> 1.19'
   spec.add_dependency 'mulang', '~> 6.0'
 
   spec.add_development_dependency 'bundler', '~> 2.0'
   spec.add_development_dependency 'codeclimate-test-reporter'
-  spec.add_development_dependency "activesupport", "~> 5.0"
+  spec.add_development_dependency "activesupport", "~> 6.0"
   spec.add_development_dependency 'rake', '~> 12.3'
   spec.add_development_dependency 'rspec', '~> 3.0'
 end
